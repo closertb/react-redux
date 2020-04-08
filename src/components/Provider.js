@@ -28,6 +28,7 @@ function Provider({ store, context, children }) {
     }
   }, [contextValue, previousState])
 
+  // 如果有Context是外面显示声明的，则直接用传递过来的Context；
   const Context = context || ReactReduxContext
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>

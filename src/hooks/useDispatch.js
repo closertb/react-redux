@@ -10,7 +10,7 @@ import { useStore as useDefaultStore, createStoreHook } from './useStore'
 export function createDispatchHook(context = ReactReduxContext) {
   const useStore =
     context === ReactReduxContext ? useDefaultStore : createStoreHook(context)
-
+  // 依赖的还是useStore钩子，获取到store后，再从store上获取dispatch方法
   return function useDispatch() {
     const store = useStore()
     return store.dispatch
